@@ -20,7 +20,7 @@ export default function LoginForm() {
       <br />
       <h2>Connectez-vous</h2>
       <form action="submit" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Entre votre prénom..." required value={inputValue} onChange={handleChange}/>
+        <input type="text" placeholder="Entrez votre prénom..." required value={inputValue} onChange={handleChange}/>
         <button type="submit">Accédez à votre espace</button>
       </form>
     </>
