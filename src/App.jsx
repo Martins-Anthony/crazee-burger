@@ -1,7 +1,13 @@
-import { RouterProvider } from "react-router";
-import { router } from "./routes";
-
+import { Route, Routes } from "react-router-dom";
+import LoginPage from "../src/components/pages/login/LoginPage"
+import OrderPage from "./components/pages/order/OrderPage";
+import ErrorPage from "./components/pages/error/ErrorPage";
 
 export default function App() {
-  return <RouterProvider router={router} />
+  return <Routes>
+    <Route path="/" element={<LoginPage/>}/>
+    <Route path="/order" element={<OrderPage/>} />
+    <Route path="/order/:name" element={<OrderPage/>} />
+    <Route path="*" element={<ErrorPage/>} />
+  </Routes>
 }
