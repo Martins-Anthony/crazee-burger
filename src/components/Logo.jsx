@@ -9,7 +9,7 @@ function Logo() {
       <Link to={'/'}>
         <div className="logoContainer">
           <span>CRAZEE</span>
-          <img src={logo} />
+          <img src={logo} alt="Logo Crazee Burger" />
           <span>BURGER</span>
         </div>
       </Link>
@@ -29,7 +29,7 @@ const LogoStyled = styled.div`
   }
 
   span {
-    font-size: 100px;
+    font-size: 110px;
     color: ${theme.colors.primary};
     font-family: ${theme.fontsFamily.primary};
     font-weight: ${theme.weights.bold};
