@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
-import logo from '../assets/logo-orange.png'
+import logo from '../../assets/logo-orange.png'
 import styled from 'styled-components'
-import { theme } from '../theme'
+import { theme } from '../../theme'
 
 function Logo() {
   return (
