@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router'
 import styled from 'styled-components'
 import { theme } from '../../../theme'
 import { IoChevronForward, IoPersonCircleOutline } from 'react-icons/io5'
+import TextInput from '../../reusable-ui/TextInput'
+
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState('')
@@ -25,16 +27,14 @@ export default function LoginForm() {
       <hr />
       <h2>Connectez-vous</h2>
       <div className="input-with-button-container">
-        <div className="input-icon-container">
-          <IoPersonCircleOutline />
-          <input
-            type="text"
-            placeholder="Entrez votre prénom"
-            required
-            value={inputValue}
-            onChange={handleChange}
-          />
-        </div>
+        <TextInput
+          value={inputValue}
+          onChange={handleChange}
+          type="text"
+          placeholder="Entrez votre prénom"
+          required
+          icon={<IoPersonCircleOutline />}
+        />
         <button type="submit">
           Accéder à mon espace <IoChevronForward />
         </button>
@@ -72,19 +72,6 @@ const LoginFormStyled = styled.form`
     flex-direction: column;
     gap: 18px;
 
-    input,
-    button {
-      font-size: ${theme.fonts.P0};
-    }
-
-    input {
-      width: 100%;
-      border: none;
-      &::placeholder {
-        color: ${theme.colors.greyMedium};
-      }
-    }
-
     button {
       width: 100%;
       display: flex;
@@ -95,6 +82,8 @@ const LoginFormStyled = styled.form`
       color: ${theme.colors.white};
       gap: 10px;
       border: none;
+      border-radius: ${theme.borderRadius.round};
+      font-size: ${theme.fonts.P0};
 
       &:hover {
         background: ${theme.colors.white};
@@ -108,23 +97,5 @@ const LoginFormStyled = styled.form`
         color: ${theme.colors.white};
       }
     }
-  }
-
-  .input-icon-container {
-    background-color: ${theme.colors.white};
-    display: flex;
-    align-items: center;
-    padding: 18px 24px;
-    width: 352px;
-    gap: 13px;
-
-    svg {
-      color: ${theme.colors.greyBlue};
-    }
-  }
-
-  .input-icon-container,
-  button {
-    border-radius: ${theme.borderRadius.round};
   }
 `
