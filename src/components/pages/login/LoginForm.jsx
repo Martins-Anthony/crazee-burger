@@ -20,12 +20,12 @@ export default function LoginForm() {
   }
 
   return (
-    <LoginFormStyled>
+    <LoginFormStyled onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
-      <span className="line"></span>
+      <hr />
       <h2>Connectez-vous</h2>
-      <form action="submit" onSubmit={handleSubmit}>
-        <div className="inputContainer">
+      <div className="input-with-button-container">
+        <div className="input-icon-container">
           <IoPersonCircleOutline />
           <input
             type="text"
@@ -36,40 +36,37 @@ export default function LoginForm() {
           />
         </div>
         <button type="submit">
-          Accédez à votre espace <IoChevronForward />
+          Accéder à mon espace <IoChevronForward />
         </button>
-      </form>
+      </div>
     </LoginFormStyled>
   )
 }
 
-const LoginFormStyled = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  h1,
-  h2 {
-    font-family: ${theme.fontsFamily.primary};
-    font-weight: ${theme.weights.bold};
-    color: ${theme.colors.white};
-  }
+const LoginFormStyled = styled.form`
+  text-align: center;
+  max-width: 500px;
+  min-width: 400px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  font-family: ${theme.fontsFamily.primary};
+  font-weight: ${theme.weights.bold};
+  color: ${theme.colors.white};
 
   h1 {
     font-size: ${theme.fonts.P5};
   }
 
-  .line {
-    width: 400px;
-    height: 3px;
-    background-color: ${theme.colors.orange};
+  hr {
+    border: 1.5px solid ${theme.colors.orange};
+    margin-bottom: 40px;
   }
 
   h2 {
     font-size: ${theme.fonts.P4};
   }
 
-  form {
+  .input-with-button-container {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -113,7 +110,7 @@ const LoginFormStyled = styled.div`
     }
   }
 
-  .inputContainer {
+  .input-icon-container {
     background-color: ${theme.colors.white};
     display: flex;
     align-items: center;
@@ -126,7 +123,7 @@ const LoginFormStyled = styled.div`
     }
   }
 
-  .inputContainer,
+  .input-icon-container,
   button {
     border-radius: ${theme.borderRadius.round};
   }
