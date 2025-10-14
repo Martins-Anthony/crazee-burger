@@ -7,9 +7,9 @@ function Logo() {
   return (
     <LogoStyled>
       <Link to={'/'}>
-        <div className="logoContainer">
+        <div className="logo-container">
           <span>CRAZEE</span>
-          <img src={logo} alt="Logo Crazee Burger" />
+          <img src={logo} alt="Logo-Crazee-Burger" />
           <span>BURGER</span>
         </div>
       </Link>
@@ -20,24 +20,26 @@ function Logo() {
 export default Logo
 
 const LogoStyled = styled.div`
-  display: flex;
-  justify-content: center;
+  transform: scale(2.5);
 
-  .logoContainer {
+  .logo-container {
     display: flex;
     align-items: center;
   }
 
   span {
-    font-size: 110px;
+    font-size: ${theme.fonts.P4};
     color: ${theme.colors.primary};
     font-family: ${theme.fontsFamily.primary};
     font-weight: ${theme.weights.bold};
-    margin: 0 ${theme.spacing.sm};
+    letter-spacing: 1.5px;
   }
 
   img {
-    width: 200px;
-    height: 150px;
+    object-fit: contain;
+    object-position: center;
+    width: 80px;
+    height: 60px;
+    margin: 0 5px;
   }
 `
