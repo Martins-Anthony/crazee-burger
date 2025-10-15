@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { theme } from '../../../theme'
 import { IoChevronForward, IoPersonCircleOutline } from 'react-icons/io5'
 import TextInput from '../../reusable-ui/TextInput'
-
+import PrimaryButton from '../../reusable-ui/PrimaryButton'
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState('')
@@ -26,76 +26,42 @@ export default function LoginForm() {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <div className="input-with-button-container">
-        <TextInput
-          value={inputValue}
-          onChange={handleChange}
-          type="text"
-          placeholder="Entrez votre prénom"
-          required
-          icon={<IoPersonCircleOutline />}
-        />
-        <button type="submit">
-          Accéder à mon espace <IoChevronForward />
-        </button>
-      </div>
+      <TextInput
+        value={inputValue}
+        onChange={handleChange}
+        type="text"
+        placeholder="Entrez votre prénom"
+        required
+        icon={<IoPersonCircleOutline />}
+      />
+      <PrimaryButton label={'Accéder à mon espace'} icon={<IoChevronForward />} />
     </LoginFormStyled>
   )
 }
 
 const LoginFormStyled = styled.form`
-  text-align: center;
-  max-width: 500px;
-  min-width: 400px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   padding: 2.5rem 2rem;
   font-family: ${theme.fontsFamily.primary};
   font-weight: ${theme.weights.bold};
   color: ${theme.colors.white};
+  gap: 18px;
 
   h1 {
     font-size: ${theme.fonts.P5};
+    margin-bottom: 14.16px
   }
 
   hr {
     border: 1.5px solid ${theme.colors.orange};
-    margin-bottom: 40px;
+    width: 100%;
+    margin-bottom: 22px;
   }
 
   h2 {
     font-size: ${theme.fonts.P4};
-  }
-
-  .input-with-button-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 18px;
-
-    button {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px 0;
-      background: ${theme.colors.primary_burger};
-      color: ${theme.colors.white};
-      gap: 10px;
-      border: none;
-      border-radius: ${theme.borderRadius.round};
-      font-size: ${theme.fonts.P0};
-
-      &:hover {
-        background: ${theme.colors.white};
-        color: ${theme.colors.primary_burger};
-        cursor: pointer;
-        border: 1px solid ${theme.colors.primary_burger};
-      }
-
-      &:active {
-        background: ${theme.colors.primary_burger};
-        color: ${theme.colors.white};
-      }
-    }
+    margin: 0;
   }
 `
