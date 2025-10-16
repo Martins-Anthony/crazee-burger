@@ -43,25 +43,27 @@ const LoginFormStyled = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 2.5rem 2rem;
-  font-family: ${theme.fontsFamily.primary};
-  font-weight: ${theme.weights.bold};
+  padding: ${theme.spacing.xl} ${theme.spacing.lg};
+  font-family: ${theme.fonts.family.primary};
+  font-weight: ${theme.fonts.weights.bold};
   color: ${theme.colors.white};
-  gap: 18px;
+  gap: ${theme.spacing.md};
+  max-width: 400px;
 
   h1 {
-    font-size: ${theme.fonts.P5};
-    margin-bottom: 14.16px
+    font-size: ${theme.fonts.size.P5};
+    margin-bottom: ${theme.spacing.sm};
   }
 
   hr {
     border: 1.5px solid ${theme.colors.orange};
     width: 100%;
-    margin-bottom: 22px;
+    margin-bottom: ${theme.spacing.md};
+    box-sizing: border-box;
   }
 
   h2 {
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
     margin: 0;
   }
 `
