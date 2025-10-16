@@ -14,20 +14,21 @@ const InputStyled = styled.div`
   background-color: ${theme.colors.white};
   display: flex;
   align-items: center;
-  padding: 18px 24px;
-  width: 352px;
-  gap: 13px;
+  padding: ${theme.spacing.md} ${theme.spacing.lg};
+  width: 100%;
+  gap: ${theme.spacing.sm};
   border-radius: ${theme.borderRadius.round};
+  box-sizing: border-box;
 
   svg {
     color: ${theme.colors.greyBlue};
-    font-size: ${theme.fonts.P2};
+    font-size: ${theme.fonts.size.P2};
   }
 
   input {
     width: 100%;
     border: none;
-    font-size: ${theme.fonts.P0};
+    font-size: ${theme.fonts.size.P0};
 
     &::placeholder {
       color: ${theme.colors.greyMedium};

@@ -14,13 +14,13 @@ const PrimaryButtonStyled = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 0;
+  padding: ${theme.spacing.md} 0;
   background: ${theme.colors.primary_burger};
   color: ${theme.colors.white};
-  gap: 10px;
+  gap: ${theme.spacing.sm};
   border: none;
   border-radius: ${theme.borderRadius.round};
-  font-size: ${theme.fonts.P0};
+  font-size: ${theme.fonts.size.P0};
 
   &:hover {
     background: ${theme.colors.white};

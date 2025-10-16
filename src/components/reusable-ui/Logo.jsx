@@ -28,10 +28,10 @@ const LogoStyled = styled.div`
   }
 
   span {
-    font-size: ${theme.fonts.P4};
+    font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.primary};
-    font-family: ${theme.fontsFamily.primary};
-    font-weight: ${theme.weights.bold};
+    font-family: ${theme.fonts.family.primary};
+    font-weight: ${theme.fonts.weights.bold};
     letter-spacing: 1.5px;
   }
 
