@@ -1,12 +1,14 @@
-import { Route, Routes } from "react-router-dom";
-import LoginPage from "../src/components/pages/login/LoginPage"
-import OrderPage from "./components/pages/order/OrderPage";
-import ErrorPage from "./components/pages/error/ErrorPage";
+import { Route, Routes } from 'react-router-dom'
+import LoginPage from '../src/components/pages/login/LoginPage'
+import OrderPage from './components/pages/order/OrderPage'
+import ErrorPage from './components/pages/error/ErrorPage'
 
 export default function App() {
-  return <Routes>
-    <Route path="/" element={<LoginPage/>}/>   
-    <Route path="/order/:username?" element={<OrderPage/>} />
-    <Route path="*" element={<ErrorPage/>} />
-  </Routes>
+  return (
+    <Routes>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/order/:username?" element={<OrderPage />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
+  )
 }
