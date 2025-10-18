@@ -14,7 +14,6 @@ export default function NavBar({ username }) {
 }
 
 const NavBarStyled = styled.nav`
-  border: 1px solid green;
   display: flex;
   justify-content: space-between;
   align-items: center;
