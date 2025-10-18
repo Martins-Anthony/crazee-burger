@@ -18,7 +18,6 @@ export default function OrderPage() {
 
 const OrderPageStyled = styled.div`
   height: 100vh;
-  border: 1px solid red;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
