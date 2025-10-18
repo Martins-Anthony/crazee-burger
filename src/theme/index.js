@@ -63,7 +63,9 @@ const borderRadius = {
   extraRound: '15px',
   circle: '50%',
 }
-const shadows = {}
+const shadows = {
+  main: `0px ${gridUnit}px ${theme.gridUnit * 2.5}px ${theme.gridUnit}px rgba(0, 0, 0, 0.2) inset`,
+}
 
 export const theme = {
   colors,
