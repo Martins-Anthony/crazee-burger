@@ -44,7 +44,7 @@ const LoginFormStyled = styled.form`
   align-items: center;
   flex-direction: column;
   padding: ${theme.spacing.xl} ${theme.spacing.lg};
-  font-family: ${theme.fonts.family.primary};
+  font-family: ${theme.fonts.family.secondary};
   font-weight: ${theme.fonts.weights.bold};
   color: ${theme.colors.white};
   gap: ${theme.spacing.md};

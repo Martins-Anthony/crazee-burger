@@ -31,8 +31,7 @@ const spacing = {
 
 const fonts = {
   family: {
-    primary: 'Amatic SC',
-    secondary: 'Open Sans',
+    secondary: 'Amatic SC',
   },
   size: {
     XXXS: '0.5rem',
@@ -63,7 +62,9 @@ const borderRadius = {
   extraRound: '15px',
   circle: '50%',
 }
-const shadows = {}
+const shadows = {
+  main: `0px ${gridUnit}px ${gridUnit * 2.5}px ${gridUnit}px rgba(0, 0, 0, 0.2) inset`,
+}
 
 export const theme = {
   colors,
