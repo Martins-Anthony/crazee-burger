@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import NavBar from '../../reusable-ui/NavBar'
+import NavBar from './NavBar'
 import { theme } from '../../../theme'
 import Main from './Main'
 
