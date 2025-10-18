@@ -1,10 +1,9 @@
 import { IoPersonCircleOutline } from 'react-icons/io5'
-import { Link, useParams } from 'react-router'
+import { Link } from 'react-router'
 import styled from 'styled-components'
 import { theme } from '../../../theme'
 
-export default function NavBar() {
-  const { username } = useParams()
+export default function NavBar({ username }) {
   return (
     <NavBarStyled>
       <div>logo</div>
