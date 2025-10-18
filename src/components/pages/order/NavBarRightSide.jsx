@@ -24,7 +24,6 @@ const NavBarRightSideStyled = styled.div`
   gap: ${theme.spacing.sm};
 
   .card-user {
-    font-family: ${theme.fonts.family.secondary};
     color: ${theme.colors.greyBlue};
 
     h4 {
@@ -45,7 +44,6 @@ const NavBarRightSideStyled = styled.div`
 
   .logout {
     font-size: ${theme.fonts.size.XXS};
-    font-family: ${theme.fonts.family.secondary};
     font-weight: ${theme.fonts.weights.regular};
     color: ${theme.colors.greyBlue};
     padding: 0;

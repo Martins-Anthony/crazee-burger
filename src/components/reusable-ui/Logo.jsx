@@ -28,7 +28,7 @@ const LogoStyled = styled.div`
   span {
     font-size: ${theme.fonts.size.P4};
     color: ${theme.colors.primary};
-    font-family: ${theme.fonts.family.primary};
+    font-family: ${theme.fonts.family.secondary};
     font-weight: ${theme.fonts.weights.bold};
     letter-spacing: 1.5px;
   }
