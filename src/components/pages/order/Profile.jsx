@@ -11,7 +11,7 @@ export default function Profile({ username }) {
           Hey, <b className="user">{username}</b>
         </h4>
         <Link to={'/'}>
-          <button className="logout">Se déconnexion</button>
+          <button className="logout">Se déconnecter</button>
         </Link>
       </div>
       <IoPersonCircleOutline className="picture" />
