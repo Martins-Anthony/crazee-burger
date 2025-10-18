@@ -3,9 +3,9 @@ import logo from '../../assets/logo-orange.png'
 import styled from 'styled-components'
 import { theme } from '../../theme'
 
-function Logo() {
+function Logo({ className }) {
   return (
-    <LogoStyled>
+    <LogoStyled className={className}>
       <Link to={'/'}>
         <div className="logo-container">
           <span>CRAZEE</span>
@@ -20,8 +20,6 @@ function Logo() {
 export default Logo
 
 const LogoStyled = styled.div`
-  transform: scale(2.5);
-
   .logo-container {
     display: flex;
     align-items: center;

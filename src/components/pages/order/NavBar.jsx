@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { theme } from '../../../theme'
 import NavBarRightSide from './NavBarRightSide'
+import Logo from '../../reusable-ui/Logo'
 
 export default function NavBar({ username }) {
   return (
     <NavBarStyled>
-      <div>logo</div>
+      <Logo />
       <NavBarRightSide username={username} />
     </NavBarStyled>
   )
@@ -17,8 +18,7 @@ const NavBarStyled = styled.nav`
   justify-content: space-between;
   align-items: center;
   height: 10vh;
-  padding-left: ${theme.spacing.md};
-  padding-right: ${theme.spacing.xl};
+  padding: 0 ${theme.spacing.md};
   background: ${theme.colors.white};
   border-radius: ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound} 0 0;
 `
