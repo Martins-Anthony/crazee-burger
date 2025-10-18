@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import NavBar from '../../reusable-ui/NavBar'
+import { theme } from '../../../theme'
 
 export default function OrderPage() {
   return (
@@ -16,9 +17,13 @@ const OrderPageStyled = styled.div`
   border: 1px solid red;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  background: ${theme.colors.primary};
 
   .container {
     width: 100%;
     max-width: 1400px;
+    height: 95vh;
+    border: 1px solid blue;
   }
 `
