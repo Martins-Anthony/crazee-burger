@@ -31,8 +31,7 @@ const spacing = {
 
 const fonts = {
   family: {
-    primary: 'Amatic SC',
-    secondary: 'Open Sans',
+    secondary: 'Amatic SC',
   },
   size: {
     XXXS: '0.5rem',
