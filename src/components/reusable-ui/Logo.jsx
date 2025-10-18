@@ -1,18 +1,13 @@
-import { Link } from 'react-router'
 import logo from '../../assets/logo-orange.png'
 import styled from 'styled-components'
 import { theme } from '../../theme'
 
-function Logo({ className }) {
+function Logo({ className, onClick }) {
   return (
-    <LogoStyled className={className}>
-      <Link to={'/'}>
-        <div className="logo-container">
-          <span>CRAZEE</span>
-          <img src={logo} alt="Logo-Crazee-Burger" />
-          <span>BURGER</span>
-        </div>
-      </Link>
+    <LogoStyled className={className} onClick={onClick}>
+      <span>CRAZEE</span>
+      <img src={logo} alt="Logo-Crazee-Burger" />
+      <span>BURGER</span>
     </LogoStyled>
   )
 }
@@ -20,10 +15,8 @@ function Logo({ className }) {
 export default Logo
 
 const LogoStyled = styled.div`
-  .logo-container {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 
   span {
     font-size: ${theme.fonts.size.P4};
