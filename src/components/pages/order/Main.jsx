@@ -1,21 +1,12 @@
 import styled from 'styled-components'
 import { theme } from '../../../theme'
-import Cards from './Cards'
 import { fakeMenu2 } from '../../../fakeData/fakeMenu'
+import Menu from './Menu'
 
 export default function Main() {
   return (
     <MainStyled>
-      {fakeMenu2.map(menu => {
-        return (
-          <Cards
-            key={menu.id}
-            pathPicture={menu.imageSource}
-            title={menu.title}
-            price={menu.price}
-          />
-        )
-      })}
+      <Menu listMenu={fakeMenu2} />
     </MainStyled>
   )
 }
