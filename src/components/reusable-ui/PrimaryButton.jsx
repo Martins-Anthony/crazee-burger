@@ -25,6 +25,7 @@ const PrimaryButtonStyled = styled.button`
     background: ${theme.colors.white};
     color: ${theme.colors.primary_burger};
     cursor: pointer;
+    transition: all 0.3s ease-out;
   }
 
   &:active {
