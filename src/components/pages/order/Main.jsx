@@ -6,11 +6,16 @@ import { fakeMenu2 } from '../../../fakeData/fakeMenu'
 export default function Main() {
   return (
     <MainStyled>
-      <Cards
-        pathPicture={fakeMenu2[0].imageSource}
-        title={fakeMenu2[0].title}
-        price={fakeMenu2[0].price}
-      />
+      {fakeMenu2.map(menu => {
+        return (
+          <Cards
+            key={menu.id}
+            pathPicture={menu.imageSource}
+            title={menu.title}
+            price={menu.price}
+          />
+        )
+      })}
     </MainStyled>
   )
 }
