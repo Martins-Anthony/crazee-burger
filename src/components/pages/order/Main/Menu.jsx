@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Cards from './Cards'
-import { theme } from '../../../theme'
+import { theme } from '../../../../theme'
 
 export default function Menu({ listMenu }) {
   return (

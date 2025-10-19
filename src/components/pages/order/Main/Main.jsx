@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { theme } from '../../../theme'
-import { fakeMenu2 } from '../../../fakeData/fakeMenu'
+import { theme } from '../../../../theme'
+import { fakeMenu2 } from '../../../../fakeData/fakeMenu'
 import Menu from './Menu'
 
 export default function Main() {

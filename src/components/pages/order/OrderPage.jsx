@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import NavBar from './NavBar'
+import NavBar from './NavBar/NavBar'
 import { theme } from '../../../theme'
-import Main from './Main'
+import Main from './Main/Main'
 import { useParams } from 'react-router'
 
 export default function OrderPage() {
