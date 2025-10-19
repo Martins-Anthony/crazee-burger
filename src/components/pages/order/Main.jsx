@@ -16,4 +16,5 @@ const MainStyled = styled.main`
   background: ${theme.colors.background_white};
   box-shadow: ${theme.shadows.main};
   border-radius: 0px 0px ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
+  overflow-y: scroll;
 `
