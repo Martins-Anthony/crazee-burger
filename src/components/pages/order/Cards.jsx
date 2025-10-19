@@ -34,6 +34,9 @@ const CardsStyled = styled.div`
     font-size: ${theme.fonts.size.P4};
     margin: 0;
     padding: 0 5px 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .container-price {
