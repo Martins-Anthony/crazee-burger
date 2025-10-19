@@ -1,11 +1,16 @@
 import styled from 'styled-components'
 import { theme } from '../../../theme'
 import Cards from './Cards'
+import { fakeMenu2 } from '../../../fakeData/fakeMenu'
 
 export default function Main() {
   return (
     <MainStyled>
-      <Cards />
+      <Cards
+        pathPicture={fakeMenu2[0].imageSource}
+        title={fakeMenu2[0].title}
+        price={fakeMenu2[0].price}
+      />
     </MainStyled>
   )
 }

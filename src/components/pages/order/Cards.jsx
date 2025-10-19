@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 import { formatPrice } from '../../../../utils/maths'
-import { fakeMenu2 } from '../../../fakeData/fakeMenu'
 import PrimaryButton from '../../reusable-ui/PrimaryButton'
 import { theme } from '../../../theme'
 
-export default function Cards() {
+export default function Cards({ pathPicture, title, price }) {
   return (
     <CardsStyled>
-      <img src="/images/burger-bacon-egg.png" alt="Burger Smoke BBQ" />
-      <h2>{fakeMenu2[0].title}</h2>
+      <img src={pathPicture} alt={title} />
+      <h2>{title}</h2>
       <div className="container-price">
-        <div>{formatPrice(fakeMenu2[0].price)}</div>
+        <div>{formatPrice(price)}</div>
         <PrimaryButton label={'Ajouter'} className={'primary-button-card'} />
       </div>
     </CardsStyled>
