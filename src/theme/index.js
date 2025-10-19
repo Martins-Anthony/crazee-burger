@@ -27,6 +27,7 @@ const spacing = {
   lg: '2rem',
   xl: '3.25rem',
   xxl: '5.25rem',
+  xxxl: '8.5rem',
 }
 
 const fonts = {
