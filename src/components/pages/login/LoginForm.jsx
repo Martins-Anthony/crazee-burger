@@ -34,7 +34,11 @@ export default function LoginForm() {
         required
         icon={<IoPersonCircleOutline />}
       />
-      <PrimaryButton label={'Accéder à mon espace'} icon={<IoChevronForward />} />
+      <PrimaryButton
+        label={'Accéder à mon espace'}
+        icon={<IoChevronForward />}
+        className={'primary-button-login'}
+      />
     </LoginFormStyled>
   )
 }
@@ -65,5 +69,9 @@ const LoginFormStyled = styled.form`
   h2 {
     font-size: ${theme.fonts.size.P4};
     margin: 0;
+  }
+
+  .primary-button-login {
+    width: 100%;
   }
 `

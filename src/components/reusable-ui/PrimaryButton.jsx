@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 import { theme } from '../../theme'
 
-export default function PrimaryButton({ label, icon }) {
+export default function PrimaryButton({ label, icon, className }) {
   return (
-    <PrimaryButtonStyled>
+    <PrimaryButtonStyled className={className}>
       {label} {icon && icon}
     </PrimaryButtonStyled>
   )
 }
 
 const PrimaryButtonStyled = styled.button`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

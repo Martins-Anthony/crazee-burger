@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 import { theme } from '../../../theme'
+import Cards from './Cards'
 
 export default function Main() {
-  return <MainStyled>main</MainStyled>
+  return (
+    <MainStyled>
+      <Cards />
+    </MainStyled>
+  )
 }
 
 const MainStyled = styled.main`
