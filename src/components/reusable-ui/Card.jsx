@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { formatPrice } from '../../../../../utils/maths'
-import PrimaryButton from '../../../reusable-ui/PrimaryButton'
-import { theme } from '../../../../theme'
+import { formatPrice } from '../../../utils/maths'
+import PrimaryButton from './PrimaryButton'
+import { theme } from '../../theme'
 
-export default function Cards({ pathPicture, title, price }) {
+export default function Card({ imageSource, title, price }) {
   return (
-    <CardsStyled>
-      <img src={pathPicture} alt={title} />
+    <CardStyled>
+      <img src={imageSource} alt={title} />
       <hgroup className="text-info">
         <h2>{title}</h2>
         <div className="description">
@@ -14,16 +14,17 @@ export default function Cards({ pathPicture, title, price }) {
           <PrimaryButton label={'Ajouter'} className={'primary-button-card'} />
         </div>
       </hgroup>
-    </CardsStyled>
+    </CardStyled>
   )
 }
 
-const CardsStyled = styled.div`
+const CardStyled = styled.li`
   padding: ${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.sd} ${theme.spacing.md};
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
   box-sizing: border-box;
   width: 15rem;
+  list-style-type: none;
 
   img {
     width: 100%;
