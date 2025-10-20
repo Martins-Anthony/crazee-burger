@@ -7,48 +7,58 @@ export default function Cards({ pathPicture, title, price }) {
   return (
     <CardsStyled>
       <img src={pathPicture} alt={title} />
-      <h2>{title}</h2>
-      <div className="container-price">
-        <div>{formatPrice(price)}</div>
-        <PrimaryButton label={'Ajouter'} className={'primary-button-card'} />
-      </div>
+      <hgroup className="text-info">
+        <h2>{title}</h2>
+        <div className="description">
+          <div className="left-description">{formatPrice(price)}</div>
+          <PrimaryButton label={'Ajouter'} className={'primary-button-card'} />
+        </div>
+      </hgroup>
     </CardsStyled>
   )
 }
 
 const CardsStyled = styled.div`
-  padding: 50px 20px 10px 20px;
+  padding: ${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.sd} ${theme.spacing.md};
   box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
-  border-radius: 15px;
-  max-width: 200px;
+  border-radius: ${theme.borderRadius.extraRound};
+  box-sizing: border-box;
+  width: 15rem;
 
   img {
-    width: 200px;
-    height: 145px;
-    margin-bottom: 15px;
+    width: 100%;
+    height: 9rem;
+    margin-top: ${theme.spacing.lg};
+    margin-bottom: ${theme.spacing.sm};
     box-sizing: border-box;
+    object-fit: contain;
+  }
+
+  .text-info {
+    display: grid;
+    grid-template-rows: 40% 60%;
+    padding: 0 ${theme.spacing.xxs} 0 ${theme.spacing.xxs};
   }
 
   h2 {
     font-family: ${theme.fonts.family.secondary};
     font-size: ${theme.fonts.size.P4};
     margin: 0;
-    padding: 0 5px 0 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
-  .container-price {
-    padding: 10px 5px 5px 5px;
+  .description {
+    padding: ${theme.spacing.sm} 0 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: ${theme.colors.primary};
 
     .primary-button-card {
-      width: 95px;
-      padding: 12px 0;
+      width: 6rem;
+      padding: ${theme.spacing.sm} 0;
     }
   }
 `
