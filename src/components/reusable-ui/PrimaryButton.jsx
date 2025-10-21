@@ -1,16 +1,15 @@
 import styled from 'styled-components'
 import { theme } from '../../theme'
 
-export default function PrimaryButton({ label, icon }) {
+export default function PrimaryButton({ label, icon, className }) {
   return (
-    <PrimaryButtonStyled>
+    <PrimaryButtonStyled className={className}>
       {label} {icon && icon}
     </PrimaryButtonStyled>
   )
 }
 
 const PrimaryButtonStyled = styled.button`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +17,7 @@ const PrimaryButtonStyled = styled.button`
   background: ${theme.colors.primary_burger};
   color: ${theme.colors.white};
   gap: ${theme.spacing.sm};
-  border: none;
+  border: 1px solid ${theme.colors.primary_burger};
   border-radius: ${theme.borderRadius.round};
   font-size: ${theme.fonts.size.P0};
 
@@ -26,7 +25,7 @@ const PrimaryButtonStyled = styled.button`
     background: ${theme.colors.white};
     color: ${theme.colors.primary_burger};
     cursor: pointer;
-    border: 1px solid ${theme.colors.primary_burger};
+    transition: all 0.3s ease-out;
   }
 
   &:active {

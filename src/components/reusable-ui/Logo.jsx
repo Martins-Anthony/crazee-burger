@@ -1,4 +1,3 @@
-import logo from '../../assets/logo-orange.png'
 import styled from 'styled-components'
 import { theme } from '../../theme'
 
@@ -6,7 +5,7 @@ function Logo({ className, onClick }) {
   return (
     <LogoStyled className={className} onClick={onClick}>
       <span>CRAZEE</span>
-      <img src={logo} alt="Logo-Crazee-Burger" />
+      <img src={'/images/logo-orange.png'} alt="Logo-Crazee-Burger" />
       <span>BURGER</span>
     </LogoStyled>
   )
