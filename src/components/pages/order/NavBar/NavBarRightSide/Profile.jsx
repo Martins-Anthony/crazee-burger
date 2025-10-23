@@ -1,7 +1,7 @@
 import { IoPersonCircleOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { theme } from '../../../../theme'
+import { theme } from '../../../../../theme'
 
 export default function Profile({ username }) {
   return (
@@ -22,7 +22,7 @@ export default function Profile({ username }) {
 const ProfileStyled = styled.div`
   display: flex;
   gap: ${theme.spacing.sm};
-
+  margin-left: ${theme.spacing.xl};
   .info {
     color: ${theme.colors.greyBlue};
     text-align: right;
