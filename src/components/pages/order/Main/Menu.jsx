@@ -17,7 +17,7 @@ export default function Menu() {
 
 const MenuStyled = styled.ul`
   background: ${theme.colors.background_white};
-  box-shadow: ${theme.shadows.main};
+  box-shadow: ${theme.shadows.strong};
   padding: ${theme.spacing.xl} ${theme.spacing.xl} ${theme.spacing.xxxl};
   display: grid;
   grid-row-gap: ${theme.spacing.xl};

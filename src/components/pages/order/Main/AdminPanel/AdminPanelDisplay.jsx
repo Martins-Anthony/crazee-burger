@@ -12,4 +12,5 @@ const AdminPanelDisplayStyled = styled.div`
   padding-left: ${theme.spacing.md};
   background: ${theme.colors.white};
   border-radius: 0 0 ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
+  box-shadow: ${theme.shadows.subtle};
 `

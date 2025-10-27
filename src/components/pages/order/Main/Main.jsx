@@ -15,7 +15,7 @@ export default function Main() {
 const MainStyled = styled.main`
   flex: 1;
   background: ${theme.colors.background_white};
-  box-shadow: ${theme.shadows.main};
+  box-shadow: ${theme.shadows.strong};
   border-radius: 0px 0px ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
   overflow-y: scroll;
 `
