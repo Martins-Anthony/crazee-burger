@@ -6,7 +6,7 @@ export default function AdminPanelDisplay() {
 }
 
 const AdminPanelDisplayStyled = styled.div`
-  border: 1px solid green;
+  border: 1px solid ${theme.colors.greyLight};
   height: 15.65rem;
   padding-top: 1.05rem;
   padding-left: ${theme.spacing.md};
