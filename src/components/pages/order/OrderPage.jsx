@@ -3,14 +3,22 @@ import NavBar from './NavBar/NavBar'
 import { theme } from '../../../theme'
 import Main from './Main/Main'
 import { useParams } from 'react-router'
+import AdminContext from '../../../context/AdminContext'
+import { useState } from 'react'
 
 export default function OrderPage() {
+  const [isModeAdmin, setIsModeAdmin] = useState(false)
   const { username } = useParams()
+
+  const adminContextValue = { isModeAdmin, setIsModeAdmin }
+
   return (
     <OrderPageStyled>
       <div className="container">
-        <NavBar username={username}></NavBar>
-        <Main></Main>
+        <AdminContext.Provider value={adminContextValue}>
+          <NavBar username={username}></NavBar>
+          <Main></Main>
+        </AdminContext.Provider>
       </div>
     </OrderPageStyled>
   )

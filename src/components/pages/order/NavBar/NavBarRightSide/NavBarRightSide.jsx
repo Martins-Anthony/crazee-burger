@@ -4,11 +4,12 @@ import { theme } from '../../../../../theme'
 import { toast } from 'react-toastify'
 import Profile from './Profile'
 import ToggleButton from '../../../../reusable-ui/ToggleButton'
-import { useState } from 'react'
+import { useContext } from 'react'
 import ToastAdmin from './ToastAdmin'
+import AdminContext from '../../../../../context/AdminContext'
 
 export default function NavBarRightSide({ username }) {
-  const [isModeAdmin, setIsModeAdmin] = useState(false)
+  const { isModeAdmin, setIsModeAdmin } = useContext(AdminContext)
 
   const displayToastNotification = () => {
     if (!isModeAdmin) {
