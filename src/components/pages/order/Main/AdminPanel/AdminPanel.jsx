@@ -2,12 +2,15 @@ import styled from 'styled-components'
 import AdminPanelDisplay from './AdminPanelDisplay'
 import AdminPanelTab from './AdminPanelTab'
 import { theme } from '../../../../../theme'
+import { useContext } from 'react'
+import AdminContext from '../../../../../context/AdminContext'
 
 export default function AdminPanel() {
+  const { isAdminPanelDisplay } = useContext(AdminContext)
   return (
     <AdminPanelStyled>
       <AdminPanelTab />
-      <AdminPanelDisplay />
+      {isAdminPanelDisplay && <AdminPanelDisplay />}
     </AdminPanelStyled>
   )
 }

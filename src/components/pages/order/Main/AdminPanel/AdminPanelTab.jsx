@@ -3,27 +3,41 @@ import { theme } from '../../../../../theme'
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { MdModeEditOutline } from 'react-icons/md'
+import { v4 as uuidv4 } from 'uuid'
+import { useContext } from 'react'
+import AdminContext from '../../../../../context/AdminContext'
 
 export default function AdminPanelTab() {
+  const { isAdminPanelDisplay, setIsAdminPanelDisplay } = useContext(AdminContext)
+
+  const panelTab = [
+    {
+      id: uuidv4(),
+      label: '',
+      icon: isAdminPanelDisplay ? <FiChevronDown /> : <FiChevronUp />,
+      onClick: () => {
+        setIsAdminPanelDisplay(!isAdminPanelDisplay)
+      },
+    },
+    {
+      id: uuidv4(),
+      label: 'Ajouter un produit',
+      icon: <AiOutlinePlus />,
+      onClick: () => {},
+    },
+    { id: uuidv4(), label: 'Modifier un produit', icon: <MdModeEditOutline />, onClick: () => {} },
+  ]
+
   return (
     <AdminPanelTabStyled>
-      <button className="panel-tab-button">
-        <span className="panel-tab-icon">
-          <FiChevronDown />
-        </span>
-      </button>
-      <button className="panel-tab-button">
-        <span className="panel-tab-icon">
-          <AiOutlinePlus />
-        </span>
-        Ajouter un produit
-      </button>
-      <button className="panel-tab-button">
-        <span className="panel-tab-icon">
-          <MdModeEditOutline />
-        </span>{' '}
-        Modifier un produit
-      </button>
+      {panelTab.map(({ id, label, icon, onClick }) => {
+        return (
+          <button key={id} className="panel-tab-button" onClick={onClick}>
+            <span className="panel-tab-icon">{icon}</span>
+            {label}
+          </button>
+        )
+      })}
     </AdminPanelTabStyled>
   )
 }
