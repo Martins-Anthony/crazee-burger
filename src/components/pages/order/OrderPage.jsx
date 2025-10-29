@@ -17,7 +17,7 @@ export default function OrderPage() {
     isAdminPanelDisplay,
     setIsAdminPanelDisplay,
   }
-  console.log(isAdminPanelDisplay)
+
   return (
     <OrderPageStyled>
       <div className="container">
