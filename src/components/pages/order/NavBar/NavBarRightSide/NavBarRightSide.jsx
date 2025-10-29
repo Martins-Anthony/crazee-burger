@@ -8,7 +8,7 @@ import { useContext } from 'react'
 import ToastAdmin from './ToastAdmin'
 import AdminContext from '../../../../../context/AdminContext'
 
-export default function NavBarRightSide({ username }) {
+export default function NavBarRightSide() {
   const { isModeAdmin, setIsModeAdmin } = useContext(AdminContext)
 
   const displayToastNotification = () => {
@@ -30,12 +30,13 @@ export default function NavBarRightSide({ username }) {
   return (
     <NavBarRightSideStyled>
       <ToggleButton
+        isChecked={isModeAdmin}
         onToggle={displayToastNotification}
         labelIfChecked="DÉSACTIVER LE MODE ADMIN"
         labelIfUnchecked="ACTIVER LE MODE ADMIN"
       />
       <ToastAdmin />
-      <Profile username={username} />
+      <Profile />
     </NavBarRightSideStyled>
   )
 }
