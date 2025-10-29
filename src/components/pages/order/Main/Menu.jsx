@@ -21,7 +21,8 @@ const MenuStyled = styled.ul`
   padding: ${theme.spacing.xl} ${theme.spacing.xl} ${theme.spacing.xxxl};
   display: grid;
   grid-row-gap: ${theme.spacing.xl};
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
   justify-items: center;
   margin: 0;
+  overflow-y: scroll;
 `

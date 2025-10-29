@@ -8,14 +8,14 @@ import { useState } from 'react'
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false)
-  const [isAdminPanelDisplay, setIsAdminPanelDisplay] = useState(true)
+  const [isAdminPanel, setIsAdminPanel] = useState(true)
   const { username } = useParams()
 
   const adminContextValue = {
     isModeAdmin,
     setIsModeAdmin,
-    isAdminPanelDisplay,
-    setIsAdminPanelDisplay,
+    isAdminPanel,
+    setIsAdminPanel,
   }
 
   return (

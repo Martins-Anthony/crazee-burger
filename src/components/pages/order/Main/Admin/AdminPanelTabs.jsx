@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { theme } from '../../../../../theme'
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { MdModeEditOutline } from 'react-icons/md'
@@ -8,16 +7,16 @@ import React, { useContext, Fragment } from 'react'
 import AdminContext from '../../../../../context/AdminContext'
 import TabButton from './TabButton'
 
-export default function AdminPanelTab() {
-  const { isAdminPanelDisplay, setIsAdminPanelDisplay } = useContext(AdminContext)
+export default function AdminPanelTabs() {
+  const { isAdminPanel, setIsAdminPanel } = useContext(AdminContext)
 
   const panelTab = [
     {
       id: uuidv4(),
       label: '',
-      icon: isAdminPanelDisplay ? <FiChevronDown /> : <FiChevronUp />,
+      icon: isAdminPanel ? <FiChevronDown /> : <FiChevronUp />,
       onClick: () => {
-        setIsAdminPanelDisplay(!isAdminPanelDisplay)
+        setIsAdminPanel(!isAdminPanel)
       },
     },
     {
@@ -30,7 +29,7 @@ export default function AdminPanelTab() {
   ]
 
   return (
-    <AdminPanelTabStyled>
+    <AdminPanelTabsStyled>
       {panelTab.map(({ id, label, icon, onClick }) => {
         return (
           <Fragment key={id}>
@@ -38,11 +37,11 @@ export default function AdminPanelTab() {
           </Fragment>
         )
       })}
-    </AdminPanelTabStyled>
+    </AdminPanelTabsStyled>
   )
 }
 
-const AdminPanelTabStyled = styled.div`
+const AdminPanelTabsStyled = styled.div`
   padding-left: 4.45rem;
   display: flex;
   gap: 1px;

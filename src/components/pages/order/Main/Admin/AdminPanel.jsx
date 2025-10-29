@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 import { theme } from '../../../../../theme'
 
-export default function AdminPanelDisplay() {
-  return <AdminPanelDisplayStyled>AdminPanelDisplay</AdminPanelDisplayStyled>
+export default function AdminPanel() {
+  return <AdminPanelStyled>AdminPanel</AdminPanelStyled>
 }
 
-const AdminPanelDisplayStyled = styled.div`
+const AdminPanelStyled = styled.div`
   border: 1px solid ${theme.colors.greyLight};
   height: 15.65rem;
   padding-top: 1.05rem;
