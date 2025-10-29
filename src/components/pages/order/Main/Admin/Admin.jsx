@@ -3,10 +3,10 @@ import AdminPanel from './AdminPanel'
 import AdminPanelTabs from './AdminPanelTabs'
 import { theme } from '../../../../../theme'
 import { useContext } from 'react'
-import AdminContext from '../../../../../context/AdminContext'
+import OrderContext from '../../../../../context/OrderContext'
 
 export default function Admin() {
-  const { isAdminPanel } = useContext(AdminContext)
+  const { isAdminPanel } = useContext(OrderContext)
   return (
     <AdminStyled>
       <AdminPanelTabs />

@@ -3,10 +3,10 @@ import { theme } from '../../../../theme'
 import Menu from './Menu'
 import Admin from './Admin/Admin'
 import { useContext } from 'react'
-import AdminContext from '../../../../context/AdminContext'
+import OrderContext from '../../../../context/OrderContext'
 
 export default function Main() {
-  const { isModeAdmin } = useContext(AdminContext)
+  const { isModeAdmin } = useContext(OrderContext)
 
   return (
     <MainStyled>

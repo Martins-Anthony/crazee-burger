@@ -4,11 +4,11 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import { MdModeEditOutline } from 'react-icons/md'
 import { v4 as uuidv4 } from 'uuid'
 import React, { useContext, Fragment } from 'react'
-import AdminContext from '../../../../../context/AdminContext'
+import OrderContext from '../../../../../context/OrderContext'
 import TabButton from './TabButton'
 
 export default function AdminPanelTabs() {
-  const { isAdminPanel, setIsAdminPanel } = useContext(AdminContext)
+  const { isAdminPanel, setIsAdminPanel } = useContext(OrderContext)
 
   const panelTab = [
     {
