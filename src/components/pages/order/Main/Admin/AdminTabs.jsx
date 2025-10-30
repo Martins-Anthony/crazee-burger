@@ -5,9 +5,9 @@ import { MdModeEditOutline } from 'react-icons/md'
 import { v4 as uuidv4 } from 'uuid'
 import React, { useContext, Fragment } from 'react'
 import OrderContext from '../../../../../context/OrderContext'
-import TabButton from './TabButton'
+import Tab from '../../../../reusable-ui/Tab'
 
-export default function AdminPanelTabs() {
+export default function AdminTabs() {
   const { isAdminPanel, setIsAdminPanel } = useContext(OrderContext)
 
   const panelTab = [
@@ -29,19 +29,19 @@ export default function AdminPanelTabs() {
   ]
 
   return (
-    <AdminPanelTabsStyled>
+    <AdminTabsStyled>
       {panelTab.map(({ id, label, icon, onClick }) => {
         return (
           <Fragment key={id}>
-            <TabButton icon={icon} label={label} onClick={onClick} />
+            <Tab icon={icon} label={label} onClick={onClick} />
           </Fragment>
         )
       })}
-    </AdminPanelTabsStyled>
+    </AdminTabsStyled>
   )
 }
 
-const AdminPanelTabsStyled = styled.div`
+const AdminTabsStyled = styled.div`
   padding-left: 4.45rem;
   display: flex;
   gap: 1px;

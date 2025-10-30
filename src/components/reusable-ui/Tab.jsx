@@ -1,16 +1,16 @@
 import styled from 'styled-components'
-import { theme } from '../../../../../theme'
+import { theme } from '../../theme'
 
-export default function TabButton({ label, icon, onClick }) {
+export default function Tab({ label, icon, onClick }) {
   return (
-    <TabButtonStyled onClick={onClick}>
+    <TabStyled onClick={onClick}>
       <span className="panel-tab-icon">{icon}</span>
       {label}
-    </TabButtonStyled>
+    </TabStyled>
   )
 }
 
-const TabButtonStyled = styled.button`
+const TabStyled = styled.button`
   color: ${theme.colors.greySemiDark};
   background: ${theme.colors.white};
   font-size: ${theme.fonts.size.P0};

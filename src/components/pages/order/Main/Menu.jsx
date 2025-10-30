@@ -25,4 +25,5 @@ const MenuStyled = styled.ul`
   justify-items: center;
   margin: 0;
   overflow-y: scroll;
+  border-radius: 0px 0px ${theme.borderRadius.extraRound} ${theme.borderRadius.extraRound};
 `
