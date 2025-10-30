@@ -4,39 +4,46 @@ import { theme } from '../../theme'
 export default function Tab({ label, icon, onClick }) {
   return (
     <TabStyled onClick={onClick}>
-      <span className="panel-tab-icon">{icon}</span>
+      <span className="icon">{icon}</span>
       {label}
     </TabStyled>
   )
 }
 
 const TabStyled = styled.button`
-  color: ${theme.colors.greySemiDark};
-  background: ${theme.colors.white};
-  font-size: ${theme.fonts.size.P0};
+  height: 2.7rem;
+
+  position: relative;
+  left: 5%;
+  top: 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: ${theme.borderRadius.round} ${theme.borderRadius.round} 0 0;
   border-width: 1px 1px 2px 1px;
   border-style: solid;
   border-color: ${theme.colors.greyLight};
-  border-radius: ${theme.borderRadius.round} ${theme.borderRadius.round} 0 0;
-  padding: ${theme.spacing.sm} ${theme.spacing.md} ${theme.spacing.sm} ${theme.spacing.md};
-  display: flex;
+
+  background: ${theme.colors.white};
+
+  font-size: ${theme.fonts.size.P0};
+  color: ${theme.colors.greySemiDark};
+
+  box-shadow: ${theme.shadows.subtle};
+
+  padding: 0 ${theme.spacing.md} 0 ${theme.spacing.md};
   gap: ${theme.spacing.sm};
 
-  .panel-tab-icon {
-    display: block;
-    width: ${theme.fonts.size.P0};
-    height: ${theme.fonts.size.P0};
+  .icon {
+    display: flex;
   }
 
   &:hover {
     cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 0.25rem;
-  }
-
-  &:active {
-    background: ${theme.colors.background_dark};
-    color: ${theme.colors.white};
-    border-color: ${theme.colors.background_dark};
+    border-bottom: 2px solid ${theme.colors.white};
   }
 `

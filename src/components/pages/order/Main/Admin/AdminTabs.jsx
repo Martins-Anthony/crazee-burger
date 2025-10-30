@@ -42,7 +42,6 @@ export default function AdminTabs() {
 }
 
 const AdminTabsStyled = styled.div`
-  padding-left: 4.45rem;
   display: flex;
   gap: 1px;
 `
