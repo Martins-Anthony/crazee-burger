@@ -1,69 +1,39 @@
 import styled from 'styled-components'
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
-import { AiOutlinePlus } from 'react-icons/ai'
-import { MdModeEditOutline } from 'react-icons/md'
 import React, { Fragment, useContext } from 'react'
 import Tab from '../../../../reusable-ui/Tab'
 import { theme } from '../../../../../theme'
 import OrderContext from '../../../../../context/OrderContext'
+import { getTabsConfig } from './getTabsConfig'
 
 export default function AdminTabs() {
-  const {
-    isCollapsed,
-    setIsCollapsed,
-    isAddSelected,
-    setIsAddSelected,
-    isEditSelected,
-    setIsEditSelected,
-  } = useContext(OrderContext)
+  const { isCollapsed, setIsCollapsed, currentTabSelected, setCurrentTabSelected } =
+    useContext(OrderContext)
 
   const selectTab = tabSelected => {
     setIsCollapsed(false)
-
-    if (tabSelected === 'add') {
-      setIsAddSelected(true)
-      setIsEditSelected(false)
-    }
-
-    if (tabSelected === 'edit') {
-      setIsEditSelected(true)
-      setIsAddSelected(false)
-    }
+    setCurrentTabSelected(tabSelected)
   }
-  const panelTab = [
-    {
-      id: 'collapseUpAndDown',
-      label: '',
-      Icon: isCollapsed ? <FiChevronUp /> : <FiChevronDown />,
-      onClick: () => setIsCollapsed(!isCollapsed),
-      className: isCollapsed ? 'is-active' : '',
-    },
-    {
-      id: 'add',
-      label: 'Ajouter un produit',
-      Icon: <AiOutlinePlus />,
-      onClick: () => {
-        selectTab('add')
-      },
-      className: isAddSelected ? 'is-active' : '',
-    },
-    {
-      id: 'edit',
-      label: 'Modifier un produit',
-      Icon: <MdModeEditOutline />,
-      onClick: () => {
-        selectTab('edit')
-      },
-      className: isEditSelected ? 'is-active' : '',
-    },
-  ]
+
+  const tabs = getTabsConfig()
 
   return (
     <AdminTabsStyled>
-      {panelTab.map(({ id, label, Icon, onClick, className }) => {
+      <Tab
+        label={''}
+        Icon={isCollapsed ? <FiChevronUp /> : <FiChevronDown />}
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        className={isCollapsed ? 'is-active' : ''}
+      />
+      {tabs.map(({ id, label, Icon }) => {
         return (
           <Fragment key={id}>
-            <Tab Icon={Icon} label={label} onClick={onClick} className={className} />
+            <Tab
+              Icon={Icon}
+              label={label}
+              onClick={() => selectTab(id)}
+              className={currentTabSelected === id ? 'is-active' : ''}
+            />
           </Fragment>
         )
       })}
