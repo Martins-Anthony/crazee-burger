@@ -2,38 +2,41 @@ import styled from 'styled-components'
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { MdModeEditOutline } from 'react-icons/md'
-import { v4 as uuidv4 } from 'uuid'
-import React, { useContext, Fragment } from 'react'
-import OrderContext from '../../../../../context/OrderContext'
+import React, { Fragment } from 'react'
 import Tab from '../../../../reusable-ui/Tab'
+import { theme } from '../../../../../theme'
 
-export default function AdminTabs() {
-  const { isAdminPanel, setIsAdminPanel } = useContext(OrderContext)
-
+export default function AdminTabs({ isCollapsed, setIsCollapsed, isTabSelected, setTabSelected }) {
   const panelTab = [
     {
-      id: uuidv4(),
+      id: 'collapseUpAndDown',
       label: '',
-      icon: isAdminPanel ? <FiChevronDown /> : <FiChevronUp />,
-      onClick: () => {
-        setIsAdminPanel(!isAdminPanel)
-      },
+      Icon: isCollapsed ? <FiChevronUp /> : <FiChevronDown />,
+      onClick: () => setIsCollapsed(!isCollapsed),
+      className: isCollapsed ? 'is-active' : '',
     },
     {
-      id: uuidv4(),
+      id: 'add',
       label: 'Ajouter un produit',
-      icon: <AiOutlinePlus />,
+      Icon: <AiOutlinePlus />,
       onClick: () => {},
+      className: isTabSelected ? 'is-active' : '',
     },
-    { id: uuidv4(), label: 'Modifier un produit', icon: <MdModeEditOutline />, onClick: () => {} },
+    {
+      id: 'edit',
+      label: 'Modifier un produit',
+      Icon: <MdModeEditOutline />,
+      onClick: () => {},
+      className: isTabSelected ? 'is-active' : '',
+    },
   ]
 
   return (
     <AdminTabsStyled>
-      {panelTab.map(({ id, label, icon, onClick }) => {
+      {panelTab.map(({ id, label, Icon, onClick, className }) => {
         return (
           <Fragment key={id}>
-            <Tab icon={icon} label={label} onClick={onClick} />
+            <Tab Icon={Icon} label={label} onClick={onClick} className={className} />
           </Fragment>
         )
       })}
@@ -44,4 +47,10 @@ export default function AdminTabs() {
 const AdminTabsStyled = styled.div`
   display: flex;
   gap: 1px;
+
+  .is-active {
+    background: ${theme.colors.background_dark};
+    color: ${theme.colors.white};
+    border-color: ${theme.colors.background_dark};
+  }
 `
