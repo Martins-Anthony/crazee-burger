@@ -1,7 +1,7 @@
 import { AiOutlinePlus } from 'react-icons/ai'
 import { MdModeEditOutline } from 'react-icons/md'
 
-export const getTabsConfig = () => [
+export const getTabsConfig = [
   {
     id: 'add',
     label: 'Ajouter un produit',
@@ -13,3 +13,7 @@ export const getTabsConfig = () => [
     Icon: <MdModeEditOutline />,
   },
 ]
+
+export const getTabsSelected = (tabs, currentTabSelected) => {
+  return tabs.find(tab => tab.id === currentTabSelected)
+}
