@@ -4,11 +4,11 @@ import NavBarRightSide from './NavBarRightSide/NavBarRightSide'
 import Logo from '../../../reusable-ui/Logo'
 import { refreshPage } from '../../../../../utils/windows'
 
-export default function NavBar({ username }) {
+export default function NavBar() {
   return (
     <NavBarStyled>
       <Logo className={'logo-order-page'} onClick={refreshPage} />
-      <NavBarRightSide username={username} />
+      <NavBarRightSide />
     </NavBarStyled>
   )
 }

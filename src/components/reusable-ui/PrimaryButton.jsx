@@ -19,7 +19,7 @@ const PrimaryButtonStyled = styled.button`
   gap: ${theme.spacing.sm};
   border: 1px solid ${theme.colors.primary_burger};
   border-radius: ${theme.borderRadius.round};
-  font-size: ${theme.fonts.size.P0};
+  font-size: ${theme.fonts.size.SM};
 
   &:hover {
     background: ${theme.colors.white};

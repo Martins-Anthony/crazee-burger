@@ -20,7 +20,7 @@ export default function Card({ imageSource, title, price }) {
 
 const CardStyled = styled.li`
   padding: ${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.sd} ${theme.spacing.md};
-  box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%);
+  box-shadow: ${theme.shadows.medium};
   border-radius: ${theme.borderRadius.extraRound};
   box-sizing: border-box;
   width: 15rem;
@@ -60,6 +60,7 @@ const CardStyled = styled.li`
     .primary-button-card {
       width: 6rem;
       padding: ${theme.spacing.sm} 0;
+      font-size: ${theme.fonts.size.XS};
     }
   }
 `

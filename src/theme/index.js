@@ -38,7 +38,8 @@ const fonts = {
     XXXS: '0.5rem',
     XXS: '0.625rem',
     XS: '0.75rem',
-    P0: '0.9375rem',
+    SM: '0.9375rem',
+    P0: '1rem',
     P1: '1.125rem',
     P2: '1.25rem',
     P3: '1.5rem',
@@ -64,7 +65,9 @@ const borderRadius = {
   circle: '50%',
 }
 const shadows = {
-  main: `0px ${gridUnit}px ${gridUnit * 2.5}px ${gridUnit}px rgba(0, 0, 0, 0.2) inset`,
+  subtle: '0px -6px 8px -2px rgba(0, 0, 0, 0.1)',
+  medium: '-8px 8px 20px 0px rgb(0 0 0 / 20%)',
+  strong: '0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset',
 }
 
 export const theme = {
