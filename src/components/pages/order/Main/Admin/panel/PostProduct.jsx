@@ -21,8 +21,14 @@ export default function PostProduct() {
             className={'input-product'}
             placeholder={`Lien URL D'une image (ex: https://la-photo-de-mon-produit.png)`}
             Icon={<BsFillCameraFill />}
+            type={'url'}
           />
-          <TextInput className={'input-product'} placeholder={'Prix'} Icon={<MdOutlineEuro />} />
+          <TextInput
+            className={'input-product'}
+            placeholder={'Prix'}
+            Icon={<MdOutlineEuro />}
+            type={'number'}
+          />
         </div>
         <div>
           <button className="button-product">Ajouter un nouveau produit au menu</button>
@@ -46,15 +52,29 @@ const AddAProductStyled = styled.form`
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 2.2rem);
     grid-column-gap: 0px;
-    grid-row-gap: 8px;
+    grid-row-gap: ${theme.spacing.xs};
     margin-bottom: ${theme.spacing.xs};
 
     .input-product {
       padding: ${theme.spacing.xs} ${theme.spacing.md};
+      background: ${theme.colors.background_white};
+
+      input {
+        background: ${theme.colors.background_white};
+      }
     }
   }
 
   .button-product {
+    font-weight: ${theme.fonts.weights.bold};
+    font-size: ${theme.fonts.size.XS};
+    color: ${theme.colors.white};
+
+    border: 1px solid ${theme.colors.success};
+    border-radius: ${theme.borderRadius.round};
+
     padding: ${theme.spacing.sm} ${theme.spacing.lg};
+
+    background: ${theme.colors.success};
   }
 `
