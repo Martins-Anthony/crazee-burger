@@ -4,11 +4,12 @@ import TextInput from '../../../../../reusable-ui/TextInput'
 import { FaHamburger } from 'react-icons/fa'
 import { BsFillCameraFill } from 'react-icons/bs'
 import { MdOutlineEuro } from 'react-icons/md'
+import ImagePreview from '../../../../../reusable-ui/ImagePreview'
 
 export default function PostProduct() {
   return (
     <AddAProductStyled>
-      <div className="image-preview">Image preview</div>
+      <ImagePreview />
       <div>
         <div className="input-container">
           <TextInput
@@ -32,7 +33,6 @@ export default function PostProduct() {
 }
 
 const AddAProductStyled = styled.form`
-  border: 1px solid;
   display: grid;
   grid-template-columns: 25% 1fr;
   grid-template-rows: 1fr;
@@ -40,11 +40,6 @@ const AddAProductStyled = styled.form`
   grid-row-gap: 0px;
 
   max-width: 880px;
-
-  .image-preview {
-    border: 1px solid green;
-    height: 7.5rem;
-  }
 
   .input-container {
     display: grid;
@@ -55,16 +50,11 @@ const AddAProductStyled = styled.form`
     margin-bottom: ${theme.spacing.xs};
 
     .input-product {
-      //height: 35px;
       padding: ${theme.spacing.xs} ${theme.spacing.md};
     }
   }
 
   .button-product {
     padding: ${theme.spacing.sm} ${theme.spacing.lg};
-  }
-
-  div {
-    border: 1px solid red;
   }
 `
