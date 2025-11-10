@@ -4,6 +4,7 @@ import { theme } from '../../../theme'
 import Main from './Main/Main'
 import OrderContext from '../../../context/OrderContext'
 import { useState } from 'react'
+import { fakeMenu } from '../../../fakeData/fakeMenu'
 
 export default function OrderPage() {
   const [isModeAdmin, setIsModeAdmin] = useState(false)
@@ -11,6 +12,13 @@ export default function OrderPage() {
   const [isAddSelected, setIsAddSelected] = useState(true)
   const [isEditSelected, setIsEditSelected] = useState(false)
   const [currentTabSelected, setCurrentTabSelected] = useState('add')
+  const [menu, setMenu] = useState(fakeMenu.LARGE)
+
+  const handleAdd = newProduct => {
+    const copyMenu = [...menu]
+    const updateMenu = [newProduct, ...copyMenu]
+    setMenu(updateMenu)
+  }
 
   const OrderContextValue = {
     isModeAdmin,
@@ -23,6 +31,8 @@ export default function OrderPage() {
     setIsEditSelected,
     currentTabSelected,
     setCurrentTabSelected,
+    menu,
+    handleAdd,
   }
 
   return (

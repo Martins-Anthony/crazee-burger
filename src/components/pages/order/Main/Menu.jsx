@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 import { theme } from '../../../../theme'
-import { useState } from 'react'
-import { fakeMenu } from '../../../../fakeData/fakeMenu'
 import Card from '../../../reusable-ui/Card'
+import { useContext } from 'react'
+import OrderContext from '../../../../context/OrderContext'
 
 export default function Menu() {
-  const [menu, setMenu] = useState(fakeMenu.LARGE)
+  const { menu } = useContext(OrderContext)
+
   return (
     <MenuStyled>
       {menu.map(({ id, imageSource, title, price }) => {

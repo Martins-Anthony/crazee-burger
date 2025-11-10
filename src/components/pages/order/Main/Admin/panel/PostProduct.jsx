@@ -5,67 +5,111 @@ import { FaHamburger } from 'react-icons/fa'
 import { BsFillCameraFill } from 'react-icons/bs'
 import { MdOutlineEuro } from 'react-icons/md'
 import ImagePreview from '../../../../../reusable-ui/ImagePreview'
+import { useContext, useState } from 'react'
+import OrderContext from '../../../../../../context/OrderContext'
+
+const EMPTY_PRODUCT = {
+  id: '',
+  title: '',
+  imageSource: '',
+  price: 0,
+}
 
 export default function PostProduct() {
+  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
+
+  const { handleAdd } = useContext(OrderContext)
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    const newProductToAdd = {
+      id: crypto.randomUUID(),
+      imageSource:
+        newProduct.imageSource === '' ? '/public/images/coming-soon.png' : newProduct.imageSource,
+      title: newProduct.title,
+      price: newProduct.price,
+    }
+
+    handleAdd(newProductToAdd)
+    setNewProduct(EMPTY_PRODUCT)
+  }
+
+  const handleChange = event => {
+    const { name, value } = event.target
+    setNewProduct({
+      ...newProduct,
+      [name]: value,
+    })
+  }
+
   return (
-    <AddAProductStyled>
-      <ImagePreview />
-      <div>
-        <div className="input-container">
-          <TextInput
-            className={'input-product'}
-            placeholder={'Nom du produit (ex: Super Burger)'}
-            Icon={<FaHamburger />}
-          />
-          <TextInput
-            className={'input-product'}
-            placeholder={`Lien URL D'une image (ex: https://la-photo-de-mon-produit.png)`}
-            Icon={<BsFillCameraFill />}
-            type={'url'}
-          />
-          <TextInput
-            className={'input-product'}
-            placeholder={'Prix'}
-            Icon={<MdOutlineEuro />}
-            type={'number'}
-          />
-        </div>
-        <div>
-          <button className="button-product">Ajouter un nouveau produit au menu</button>
-        </div>
-      </div>
+    <AddAProductStyled onSubmit={handleSubmit}>
+      <ImagePreview url={newProduct.imageSource} className={'image-preview'} />
+      <TextInput
+        className={'input-product'}
+        placeholder={'Nom du produit (ex: Super Burger)'}
+        Icon={<FaHamburger />}
+        value={newProduct.title}
+        onChange={handleChange}
+        name={'title'}
+      />
+      <TextInput
+        className={'input-product input-image'}
+        placeholder={`Lien URL D'une image (ex: https://la-photo-de-mon-produit.png)`}
+        Icon={<BsFillCameraFill />}
+        type={'url'}
+        value={newProduct.imageSource}
+        onChange={handleChange}
+        name={'imageSource'}
+      />
+      <TextInput
+        className={'input-product input-price'}
+        placeholder={'Prix'}
+        Icon={<MdOutlineEuro />}
+        type={'number'}
+        value={newProduct.price ? newProduct.price : ''}
+        onChange={handleChange}
+        name={'price'}
+      />
+      <button className="button-product">Ajouter un nouveau produit au menu</button>
     </AddAProductStyled>
   )
 }
 
 const AddAProductStyled = styled.form`
   display: grid;
-  grid-template-columns: 25% 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(4, 1fr);
   grid-column-gap: ${theme.spacing.md};
-  grid-row-gap: 0px;
+  grid-row-gap: ${theme.spacing.xs};
 
-  max-width: 880px;
+  width: 70%;
 
-  .input-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 2.2rem);
-    grid-column-gap: 0px;
-    grid-row-gap: ${theme.spacing.xs};
-    margin-bottom: ${theme.spacing.xs};
+  .input-product {
+    padding: ${theme.spacing.xs} ${theme.spacing.md};
+    background: ${theme.colors.background_white};
 
-    .input-product {
-      padding: ${theme.spacing.xs} ${theme.spacing.md};
+    input {
       background: ${theme.colors.background_white};
-
-      input {
-        background: ${theme.colors.background_white};
-      }
     }
   }
 
+  .input-image {
+    grid-column-start: 2;
+  }
+
+  .input-price {
+    grid-column-start: 2;
+    grid-row-start: 3;
+  }
+
   .button-product {
+    grid-column-start: 2;
+    grid-row-start: 4;
+
+    width: 50%;
+
     font-weight: ${theme.fonts.weights.bold};
     font-size: ${theme.fonts.size.XS};
     color: ${theme.colors.white};
