@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import AdminPanel from './panel/AdminPanel'
+import AdminPanel from './AdminPanel/AdminPanel'
 import AdminTabs from './AdminTabs'
 import { theme } from '../../../../../theme'
 import { useContext } from 'react'

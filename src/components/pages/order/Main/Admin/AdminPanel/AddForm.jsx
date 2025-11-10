@@ -15,7 +15,7 @@ const EMPTY_PRODUCT = {
   price: 0,
 }
 
-export default function PostProduct() {
+export default function AddForm() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
 
   const { handleAdd } = useContext(OrderContext)
@@ -44,7 +44,7 @@ export default function PostProduct() {
   }
 
   return (
-    <AddAProductStyled onSubmit={handleSubmit}>
+    <AddFormStyled onSubmit={handleSubmit}>
       <ImagePreview url={newProduct.imageSource} className={'image-preview'} />
       <TextInput
         className={'input-product'}
@@ -73,11 +73,11 @@ export default function PostProduct() {
         name={'price'}
       />
       <button className="button-product">Ajouter un nouveau produit au menu</button>
-    </AddAProductStyled>
+    </AddFormStyled>
   )
 }
 
-const AddAProductStyled = styled.form`
+const AddFormStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
