@@ -25,8 +25,7 @@ export default function AddForm() {
 
     const newProductToAdd = {
       id: crypto.randomUUID(),
-      imageSource:
-        newProduct.imageSource === '' ? '/public/images/coming-soon.png' : newProduct.imageSource,
+      imageSource: newProduct.imageSource,
       title: newProduct.title,
       price: newProduct.price,
     }
