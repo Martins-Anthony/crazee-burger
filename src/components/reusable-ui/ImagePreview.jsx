@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { theme } from '../../theme'
 
-export default function ImagePreview({ url }) {
+export default function ImagePreview({ imageSource, title }) {
   return (
     <ImagePreviewStyled>
-      {url.length > 0 ? <img src={url} alt="Image-preview" /> : <div>Aucune image</div>}
+      {imageSource ? <img src={imageSource} alt={title} /> : <div>Aucune image</div>}
     </ImagePreviewStyled>
   )
 }

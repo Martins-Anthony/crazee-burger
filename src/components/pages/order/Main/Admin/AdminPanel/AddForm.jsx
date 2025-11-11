@@ -44,7 +44,7 @@ export default function AddForm() {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <ImagePreview url={newProduct.imageSource} className={'image-preview'} />
+      <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title} />
       <TextInput
         className={'input-product'}
         placeholder={'Nom du produit (ex: Super Burger)'}
