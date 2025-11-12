@@ -2,11 +2,17 @@ import styled from 'styled-components'
 import { formatPrice } from '../../../utils/maths'
 import PrimaryButton from './PrimaryButton'
 import { theme } from '../../theme'
+import { TiDelete } from 'react-icons/ti'
 
 export default function Card({ imageSource, title, price }) {
   return (
     <CardStyled>
-      <img src={imageSource} alt={title} />
+      <div className="image-container">
+        <div className="Icon-deleted">
+          <TiDelete />
+        </div>
+        <img src={imageSource} alt={title} />
+      </div>
       <hgroup className="text-info">
         <h2>{title}</h2>
         <div className="description">
@@ -25,14 +31,36 @@ const CardStyled = styled.li`
   box-sizing: border-box;
   width: 15rem;
   list-style-type: none;
+  position: relative;
 
-  img {
-    width: 100%;
-    height: 9rem;
-    margin-top: ${theme.spacing.lg};
-    margin-bottom: ${theme.spacing.sm};
-    box-sizing: border-box;
-    object-fit: contain;
+  .image-container {
+    display: flex;
+    flex-direction: column;
+
+    .Icon-deleted {
+      display: flex;
+      position: absolute;
+
+      margin-bottom: 10rem;
+      margin-left: 10.95rem;
+
+      font-size: 1.875rem;
+      color: ${theme.colors.primary};
+
+      &:hover {
+        color: ${theme.colors.red};
+        cursor: pointer;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 9rem;
+      margin-top: ${theme.spacing.lg};
+      margin-bottom: ${theme.spacing.sm};
+      box-sizing: border-box;
+      object-fit: contain;
+    }
   }
 
   .text-info {
