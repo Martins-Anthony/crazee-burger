@@ -7,6 +7,8 @@ import { MdOutlineEuro } from 'react-icons/md'
 import ImagePreview from '../../../../../reusable-ui/ImagePreview'
 import { useContext, useState } from 'react'
 import OrderContext from '../../../../../../context/OrderContext'
+import { FiCheckCircle } from 'react-icons/fi'
+import PrimaryButton from '../../../../../reusable-ui/PrimaryButton'
 
 const EMPTY_PRODUCT = {
   id: '',
@@ -17,6 +19,7 @@ const EMPTY_PRODUCT = {
 
 export default function AddForm() {
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const { handleAdd } = useContext(OrderContext)
 
@@ -32,6 +35,16 @@ export default function AddForm() {
 
     handleAdd(newProductToAdd)
     setNewProduct(EMPTY_PRODUCT)
+
+    displaySubmitMessage()
+  }
+
+  const displaySubmitMessage = () => {
+    setIsSubmitted(true)
+
+    setTimeout(() => {
+      setIsSubmitted(false)
+    }, 2000)
   }
 
   const handleChange = event => {
@@ -71,7 +84,17 @@ export default function AddForm() {
         onChange={handleChange}
         name={'price'}
       />
-      <button className="button-product">Ajouter un nouveau produit au menu</button>
+      <div className="submit-button">
+        <PrimaryButton
+          label={'Ajouter un nouveau produit au menu'}
+          className={`${isSubmitted ? 'success' : 'primary-button-add'}`}
+        />
+        {isSubmitted && (
+          <span>
+            <FiCheckCircle /> Ajouté avec succès !
+          </span>
+        )}
+      </div>
     </AddFormStyled>
   )
 }
@@ -103,21 +126,64 @@ const AddFormStyled = styled.form`
     grid-row-start: 3;
   }
 
-  .button-product {
+  .submit-button {
     grid-column-start: 2;
     grid-row-start: 4;
 
-    width: 50%;
+    display: grid;
+    grid-template-columns: 45% 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
 
-    font-weight: ${theme.fonts.weights.bold};
-    font-size: ${theme.fonts.size.XS};
-    color: ${theme.colors.white};
+    .success {
+      background: ${theme.colors.white};
+      color: ${theme.colors.success};
+      font-weight: ${theme.fonts.weights.bold};
+      font-size: ${theme.fonts.size.XS};
 
-    border: 1px solid ${theme.colors.success};
-    border-radius: ${theme.borderRadius.round};
+      border: 1px solid ${theme.colors.success};
+      border-radius: ${theme.borderRadius.round};
 
-    padding: ${theme.spacing.sm} ${theme.spacing.lg};
+      padding: ${theme.spacing.sm} ${theme.spacing.lg};
+    }
 
-    background: ${theme.colors.success};
+    .primary-button-add {
+      font-weight: ${theme.fonts.weights.bold};
+      font-size: ${theme.fonts.size.XS};
+
+      border: 1px solid ${theme.colors.success};
+      border-radius: ${theme.borderRadius.round};
+
+      padding: ${theme.spacing.sm} ${theme.spacing.lg};
+
+      background: ${theme.colors.success};
+
+      &:hover {
+        background: ${theme.colors.white};
+        color: ${theme.colors.success};
+        cursor: pointer;
+        transition: all 0.3s ease-out;
+      }
+
+      &:active {
+        background: ${theme.colors.white};
+        color: ${theme.colors.success};
+      }
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      padding-left: 0.94rem;
+      gap: 5px;
+
+      font-size: ${theme.fonts.size.SM};
+      color: ${theme.colors.success};
+
+      svg {
+        font-size: ${theme.fonts.size.P1};
+      }
+    }
   }
 `
