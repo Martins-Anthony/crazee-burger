@@ -4,13 +4,15 @@ import PrimaryButton from './PrimaryButton'
 import { theme } from '../../theme'
 import { TiDelete } from 'react-icons/ti'
 
-export default function Card({ imageSource, title, price }) {
+export default function Card({ imageSource, title, price, hasDeleteButton, onDelete }) {
   return (
     <CardStyled>
       <div className="image-container">
-        <div className="Icon-deleted">
-          <TiDelete />
-        </div>
+        {hasDeleteButton && (
+          <button className="button-delete" onClick={onDelete}>
+            <TiDelete />
+          </button>
+        )}
         <img src={imageSource} alt={title} />
       </div>
       <hgroup className="text-info">
@@ -32,17 +34,21 @@ const CardStyled = styled.li`
   width: 15rem;
   list-style-type: none;
   position: relative;
+  background: ${theme.colors.white};
 
   .image-container {
     display: flex;
     flex-direction: column;
 
-    .Icon-deleted {
+    .button-delete {
       display: flex;
       position: absolute;
 
-      margin-bottom: 10rem;
+      border: none;
+      background: none;
+
       margin-left: 10.95rem;
+      padding: 0;
 
       font-size: 1.875rem;
       color: ${theme.colors.primary};
