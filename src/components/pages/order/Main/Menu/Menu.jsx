@@ -1,13 +1,20 @@
 import styled from 'styled-components'
-import { theme } from '../../../../theme'
-import Card from '../../../reusable-ui/Card'
+import { theme } from '../../../../../theme'
+import Card from '../../../../reusable-ui/Card'
 import { useContext } from 'react'
-import OrderContext from '../../../../context/OrderContext'
+import OrderContext from '../../../../../context/OrderContext'
+import EmptyMenuAdmin from './EmptyMenuAdmin'
+import EmptyMenuClient from './EmptyMenuClient'
 
 const IMAGE_BY_DEFAULT = '/public/images/coming-soon.png'
 
 export default function Menu() {
-  const { menu, isModeAdmin, handleDelete } = useContext(OrderContext)
+  const { menu, isModeAdmin, handleDelete, resetMenu } = useContext(OrderContext)
+
+  if (menu.length === 0) {
+    if (!isModeAdmin) return <EmptyMenuClient />
+    return <EmptyMenuAdmin onReset={() => resetMenu()} />
+  }
 
   return (
     <MenuStyled>

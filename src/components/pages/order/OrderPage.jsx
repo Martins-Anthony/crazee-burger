@@ -12,7 +12,7 @@ export default function OrderPage() {
   const [isAddSelected, setIsAddSelected] = useState(true)
   const [isEditSelected, setIsEditSelected] = useState(false)
   const [currentTabSelected, setCurrentTabSelected] = useState('add')
-  const [menu, setMenu] = useState(fakeMenu.LARGE)
+  const [menu, setMenu] = useState(fakeMenu.SMALL)
 
   const handleAdd = newProduct => {
     const copyMenu = [...menu]
@@ -24,6 +24,10 @@ export default function OrderPage() {
     const copyMenu = [...menu]
     const updateMenu = copyMenu.filter(product => product.id !== idOfProductToDelete)
     setMenu(updateMenu)
+  }
+
+  const resetMenu = () => {
+    setMenu(fakeMenu.LARGE)
   }
 
   const OrderContextValue = {
@@ -40,6 +44,7 @@ export default function OrderPage() {
     menu,
     handleAdd,
     handleDelete,
+    resetMenu,
   }
 
   return (
