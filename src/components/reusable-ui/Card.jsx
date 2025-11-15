@@ -32,6 +32,7 @@ const CardStyled = styled.li`
   border-radius: ${theme.borderRadius.extraRound};
   box-sizing: border-box;
   width: 15rem;
+  height: 20.625rem;
   list-style-type: none;
   position: relative;
   background: ${theme.colors.white};
