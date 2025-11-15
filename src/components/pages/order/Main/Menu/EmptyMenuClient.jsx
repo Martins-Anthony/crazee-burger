@@ -1,11 +1,11 @@
+import { EmptyMenuStyled } from './EmptyMenuStyled'
+
 export default function EmptyMenuClient() {
   return (
-    <div>
+    <EmptyMenuStyled>
       <h1>Victime de notre succès ! :d</h1>
-      <h2>
-        De nouvelles recettes sont en cours de préparation.
-        <br />à très vite !
-      </h2>
-    </div>
+      <p>De nouvelles recettes sont en cours de préparation.</p>
+      <p>à très vite !</p>
+    </EmptyMenuStyled>
   )
 }
