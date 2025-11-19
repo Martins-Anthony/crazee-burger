@@ -132,7 +132,7 @@ const AddFormStyled = styled.form`
     grid-row-start: 4;
 
     display: grid;
-    grid-template-columns: 45.5% 1fr;
+    grid-template-columns: 50% 1fr;
     grid-template-rows: 1fr;
     align-items: center;
     text-align: center;

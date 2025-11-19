@@ -4,22 +4,32 @@ import { theme } from '../../theme'
 export default function TextInput({ className, value, onChange, Icon, ...restProps }) {
   return (
     <InputStyled className={className}>
-      {Icon && Icon}
+      <div className="icon">{Icon && Icon}</div>
       <input value={value} onChange={onChange} {...restProps} />
     </InputStyled>
   )
 }
 
 const InputStyled = styled.div`
-  background-color: ${theme.colors.white};
   display: flex;
   align-items: center;
-  width: 100%;
+  align-self: stretch;
+
   gap: ${theme.spacing.sm};
+  padding: ${theme.spacing.md} ${theme.spacing.lg};
+
+  background-color: ${theme.colors.white};
+
   border-radius: ${theme.borderRadius.round};
   box-sizing: border-box;
 
-  svg {
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 ${theme.spacing.xs} 0 ${theme.spacing.sm};
+
     color: ${theme.colors.greyBlue};
     font-size: ${theme.fonts.size.P2};
   }

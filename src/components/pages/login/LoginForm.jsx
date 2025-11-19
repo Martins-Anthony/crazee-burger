@@ -33,7 +33,6 @@ export default function LoginForm() {
         placeholder="Entrez votre prénom"
         required
         Icon={<IoPersonCircleOutline />}
-        className={'input-login'}
       />
       <PrimaryButton
         label={'Accéder à mon espace'}
@@ -48,12 +47,17 @@ const LoginFormStyled = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  width: 100%;
+  max-width: 400px;
+
+  gap: ${theme.spacing.md};
+
   padding: ${theme.spacing.xl} ${theme.spacing.lg};
+
   font-family: ${theme.fonts.family.secondary};
   font-weight: ${theme.fonts.weights.bold};
   color: ${theme.colors.white};
-  gap: ${theme.spacing.md};
-  max-width: 400px;
 
   h1 {
     font-size: ${theme.fonts.size.P5};
@@ -70,10 +74,6 @@ const LoginFormStyled = styled.form`
   h2 {
     font-size: ${theme.fonts.size.P4};
     margin: 0;
-  }
-
-  .input-login {
-    padding: ${theme.spacing.md} ${theme.spacing.lg};
   }
 
   .primary-button-login {
