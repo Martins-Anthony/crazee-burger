@@ -65,24 +65,27 @@ export default function AddForm() {
         value={newProduct.title}
         onChange={handleChange}
         name={'title'}
+        version="minimalist"
       />
       <TextInput
-        className={'input-product input-image'}
+        className={'input-image'}
         placeholder={`Lien URL D'une image (ex: https://la-photo-de-mon-produit.png)`}
         Icon={<BsFillCameraFill />}
         type={'url'}
         value={newProduct.imageSource}
         onChange={handleChange}
         name={'imageSource'}
+        version="minimalist"
       />
       <TextInput
-        className={'input-product input-price'}
+        className={'input-price'}
         placeholder={'Prix'}
         Icon={<MdOutlineEuro />}
         type={'number'}
         value={newProduct.price ? newProduct.price : ''}
         onChange={handleChange}
         name={'price'}
+        version="minimalist"
       />
       <div className="submit-button">
         <PrimaryButton
@@ -108,15 +111,6 @@ const AddFormStyled = styled.form`
 
   width: 70%;
   height: 10rem;
-
-  .input-product {
-    padding: ${theme.spacing.xs} ${theme.spacing.md};
-    background: ${theme.colors.background_white};
-
-    input {
-      background: ${theme.colors.background_white};
-    }
-  }
 
   .input-image {
     grid-column-start: 2;

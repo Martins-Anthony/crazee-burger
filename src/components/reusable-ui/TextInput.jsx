@@ -1,9 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { theme } from '../../theme'
 
-export default function TextInput({ className, value, onChange, Icon, ...restProps }) {
+export default function TextInput({
+  className,
+  value,
+  onChange,
+  Icon,
+  version = 'normal',
+  ...restProps
+}) {
   return (
-    <InputStyled className={className}>
+    <InputStyled className={className} version={version}>
       <div className="icon">{Icon && Icon}</div>
       <input value={value} onChange={onChange} {...restProps} />
     </InputStyled>
@@ -16,9 +23,6 @@ const InputStyled = styled.div`
   align-self: stretch;
 
   gap: ${theme.spacing.sm};
-  padding: ${theme.spacing.md} ${theme.spacing.lg};
-
-  background-color: ${theme.colors.white};
 
   border-radius: ${theme.borderRadius.round};
   box-sizing: border-box;
@@ -38,7 +42,31 @@ const InputStyled = styled.div`
     width: 100%;
     border: none;
     font-size: ${theme.fonts.size.P0};
+  }
 
+  ${props => {
+    if (props.version === 'normal') return extraStyledNormal
+    if (props.version === 'minimalist') return extraStyledMinimalist
+  }}
+`
+
+const extraStyledNormal = css`
+  padding: ${theme.spacing.md} ${theme.spacing.lg};
+  background: ${theme.colors.white};
+
+  input {
+    &::placeholder {
+      color: ${theme.colors.greyLight};
+    }
+  }
+`
+
+const extraStyledMinimalist = css`
+  padding: ${theme.spacing.xs} ${theme.spacing.md};
+  background: ${theme.colors.background_white};
+
+  input {
+    background: ${theme.colors.background_white};
     &::placeholder {
       color: ${theme.colors.greyMedium};
     }
