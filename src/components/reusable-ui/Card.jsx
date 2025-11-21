@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { formatPrice } from '../../../utils/maths'
-import PrimaryButton from './PrimaryButton'
+import Button from './Button'
 import { theme } from '../../theme'
 import { TiDelete } from 'react-icons/ti'
 
@@ -9,9 +9,7 @@ export default function Card({ imageSource, title, price, hasDeleteButton, onDel
     <CardStyled>
       <div className="image-container">
         {hasDeleteButton && (
-          <button className="button-delete" onClick={onDelete}>
-            <TiDelete />
-          </button>
+          <Button onClick={onDelete} Icon={<TiDelete />} version={'danger'}></Button>
         )}
         <img src={imageSource} alt={title} />
       </div>
@@ -19,7 +17,7 @@ export default function Card({ imageSource, title, price, hasDeleteButton, onDel
         <h2>{title}</h2>
         <div className="description">
           <div className="left-description">{formatPrice(price)}</div>
-          <PrimaryButton label={'Ajouter'} className={'primary-button-card'} />
+          <Button label={'Ajouter'} className={'primary-button-card'} />
         </div>
       </hgroup>
     </CardStyled>
@@ -40,25 +38,6 @@ const CardStyled = styled.li`
   .image-container {
     display: flex;
     flex-direction: column;
-
-    .button-delete {
-      display: flex;
-      position: absolute;
-
-      border: none;
-      background: none;
-
-      margin-left: 10.95rem;
-      padding: 0;
-
-      font-size: 1.875rem;
-      color: ${theme.colors.primary};
-
-      &:hover {
-        color: ${theme.colors.red};
-        cursor: pointer;
-      }
-    }
 
     img {
       width: 100%;

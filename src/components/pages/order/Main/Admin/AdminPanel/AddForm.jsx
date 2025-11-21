@@ -8,7 +8,7 @@ import ImagePreview from '../../../../../reusable-ui/ImagePreview'
 import { useContext, useState } from 'react'
 import OrderContext from '../../../../../../context/OrderContext'
 import { FiCheckCircle } from 'react-icons/fi'
-import PrimaryButton from '../../../../../reusable-ui/PrimaryButton'
+import Button from '../../../../../reusable-ui/Button'
 
 const EMPTY_PRODUCT = {
   id: '',
@@ -88,9 +88,10 @@ export default function AddForm() {
         version="minimalist"
       />
       <div className="submit-button">
-        <PrimaryButton
+        <Button
           label={'Ajouter un nouveau produit au menu'}
-          className={`${isSubmitted ? 'success' : 'primary-button-add'}`}
+          className={`${isSubmitted && 'success'}`}
+          version={'success'}
         />
         {isSubmitted && (
           <span>
@@ -141,30 +142,6 @@ const AddFormStyled = styled.form`
       border-radius: ${theme.borderRadius.round};
 
       padding: ${theme.spacing.sm} ${theme.spacing.lg};
-    }
-
-    .primary-button-add {
-      font-weight: ${theme.fonts.weights.bold};
-      font-size: ${theme.fonts.size.XS};
-
-      border: 1px solid ${theme.colors.success};
-      border-radius: ${theme.borderRadius.round};
-
-      padding: ${theme.spacing.sm} ${theme.spacing.lg};
-
-      background: ${theme.colors.success};
-
-      &:hover {
-        background: ${theme.colors.white};
-        color: ${theme.colors.success};
-        cursor: pointer;
-        transition: all 0.3s ease-out;
-      }
-
-      &:active {
-        background: ${theme.colors.white};
-        color: ${theme.colors.success};
-      }
     }
 
     span {

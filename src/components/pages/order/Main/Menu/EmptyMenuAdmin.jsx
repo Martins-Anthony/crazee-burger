@@ -1,4 +1,4 @@
-import PrimaryButton from '../../../../reusable-ui/PrimaryButton'
+import Button from '../../../../reusable-ui/Button'
 import { EmptyMenuStyled } from './EmptyMenuStyled'
 
 export default function EmptyMenuAdmin({ onReset }) {
@@ -6,7 +6,7 @@ export default function EmptyMenuAdmin({ onReset }) {
     <EmptyMenuStyled>
       <h1>Le menu est vide ?</h1>
       <p>Cliquez ci-dessous pour le réinitialiser</p>
-      <PrimaryButton
+      <Button
         label={'Générer de nouveaux produits'}
         onClick={onReset}
       />

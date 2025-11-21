@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { theme } from '../../../theme'
 import { IoChevronForward, IoPersonCircleOutline } from 'react-icons/io5'
 import TextInput from '../../reusable-ui/TextInput'
-import PrimaryButton from '../../reusable-ui/PrimaryButton'
+import Button from '../../reusable-ui/Button'
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState('')
@@ -34,7 +34,7 @@ export default function LoginForm() {
         required
         Icon={<IoPersonCircleOutline />}
       />
-      <PrimaryButton
+      <Button
         label={'Accéder à mon espace'}
         Icon={<IoChevronForward />}
         className={'primary-button-login'}
