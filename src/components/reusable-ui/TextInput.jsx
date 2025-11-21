@@ -44,10 +44,7 @@ const InputStyled = styled.div`
     font-size: ${theme.fonts.size.P0};
   }
 
-  ${props => {
-    if (props.version === 'normal') return extraStyledNormal
-    if (props.version === 'minimalist') return extraStyledMinimalist
-  }}
+  ${({ version }) => extraStyled[version]}
 `
 
 const extraStyledNormal = css`
@@ -72,3 +69,8 @@ const extraStyledMinimalist = css`
     }
   }
 `
+
+const extraStyled = {
+  normal: extraStyledNormal,
+  minimalist: extraStyledMinimalist,
+}
