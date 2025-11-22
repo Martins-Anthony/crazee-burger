@@ -4,9 +4,8 @@ import TextInput from '../../../../../reusable-ui/TextInput'
 import ImagePreview from '../../../../../reusable-ui/ImagePreview'
 import { useContext, useState } from 'react'
 import OrderContext from '../../../../../../context/OrderContext'
-import { FiCheckCircle } from 'react-icons/fi'
-import Button from '../../../../../reusable-ui/Button'
 import { getAddFormConfig } from './getAddFormConfig'
+import SubmitMessage from './SubmitMessage'
 
 export const EMPTY_PRODUCT = {
   id: '',
@@ -69,18 +68,7 @@ export default function AddForm() {
           />
         )
       })}
-      <div className="submit-button">
-        <Button
-          label={'Ajouter un nouveau produit au menu'}
-          className={`${isSubmitted && 'success'}`}
-          version={'success'}
-        />
-        {isSubmitted && (
-          <span>
-            <FiCheckCircle /> Ajouté avec succès !
-          </span>
-        )}
-      </div>
+      <SubmitMessage isSubmitted={isSubmitted} />
     </AddFormStyled>
   )
 }
@@ -94,41 +82,4 @@ const AddFormStyled = styled.form`
 
   width: 70%;
   height: 10rem;
-
-  .submit-button {
-    grid-column-start: 2;
-    grid-row-start: 4;
-
-    display: grid;
-    grid-template-columns: 50% 1fr;
-    grid-template-rows: 1fr;
-    align-items: center;
-    text-align: center;
-
-    .success {
-      background: ${theme.colors.white};
-      color: ${theme.colors.success};
-      font-weight: ${theme.fonts.weights.bold};
-      font-size: ${theme.fonts.size.XS};
-
-      border: 1px solid ${theme.colors.success};
-      border-radius: ${theme.borderRadius.round};
-
-      padding: ${theme.spacing.sm} ${theme.spacing.lg};
-    }
-
-    span {
-      display: flex;
-      align-items: center;
-      padding-left: 0.94rem;
-      gap: 5px;
-
-      font-size: ${theme.fonts.size.SM};
-      color: ${theme.colors.success};
-
-      svg {
-        font-size: ${theme.fonts.size.P1};
-      }
-    }
-  }
 `
