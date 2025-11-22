@@ -10,7 +10,7 @@ import OrderContext from '../../../../../../context/OrderContext'
 import { FiCheckCircle } from 'react-icons/fi'
 import Button from '../../../../../reusable-ui/Button'
 
-const EMPTY_PRODUCT = {
+export const EMPTY_PRODUCT = {
   id: '',
   title: '',
   imageSource: '',
@@ -18,10 +18,10 @@ const EMPTY_PRODUCT = {
 }
 
 export default function AddForm() {
-  const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext)
 
-  const { handleAdd } = useContext(OrderContext)
+  
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const handleSubmit = event => {
     event.preventDefault()
