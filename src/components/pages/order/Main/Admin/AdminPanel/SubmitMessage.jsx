@@ -3,56 +3,24 @@ import Button from '../../../../../reusable-ui/Button'
 import styled from 'styled-components'
 import { theme } from '../../../../../../theme'
 
-export default function SubmitMessage({ isSubmitted }) {
+export default function SubmitMessage() {
   return (
     <SubmitMessageStyled>
-      <Button
-        label={'Ajouter un nouveau produit au menu'}
-        className={`${isSubmitted && 'success'}`}
-        version={'success'}
-      />
-      {isSubmitted && (
-        <span>
-          <FiCheckCircle /> Ajouté avec succès !
-        </span>
-      )}
+      <FiCheckCircle /> Ajouté avec succès !
     </SubmitMessageStyled>
   )
 }
 
 const SubmitMessageStyled = styled.div`
-  grid-column-start: 2;
-  grid-row-start: 4;
-
-  display: grid;
-  grid-template-columns: 50% 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
   align-items: center;
-  text-align: center;
+  padding-left: 0.94rem;
+  gap: 5px;
 
-  .success {
-    background: ${theme.colors.white};
-    color: ${theme.colors.success};
-    font-weight: ${theme.fonts.weights.bold};
-    font-size: ${theme.fonts.size.XS};
+  font-size: ${theme.fonts.size.SM};
+  color: ${theme.colors.success};
 
-    border: 1px solid ${theme.colors.success};
-    border-radius: ${theme.borderRadius.round};
-
-    padding: ${theme.spacing.sm} ${theme.spacing.lg};
-  }
-
-  span {
-    display: flex;
-    align-items: center;
-    padding-left: 0.94rem;
-    gap: 5px;
-
-    font-size: ${theme.fonts.size.SM};
-    color: ${theme.colors.success};
-
-    svg {
-      font-size: ${theme.fonts.size.P1};
-    }
+  svg {
+    font-size: ${theme.fonts.size.P1};
   }
 `

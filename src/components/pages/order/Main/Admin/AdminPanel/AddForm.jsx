@@ -4,8 +4,9 @@ import TextInput from '../../../../../reusable-ui/TextInput'
 import ImagePreview from '../../../../../reusable-ui/ImagePreview'
 import { useContext, useState } from 'react'
 import OrderContext from '../../../../../../context/OrderContext'
-import { getAddFormConfig } from './getAddFormConfig'
+import { getInputTextsConfig } from './getInputTextsConfig'
 import SubmitMessage from './SubmitMessage'
+import Button from '../../../../../reusable-ui/Button'
 
 export const EMPTY_PRODUCT = {
   id: '',
@@ -51,24 +52,22 @@ export default function AddForm() {
     })
   }
 
+  const inputTexts = getInputTextsConfig(newProduct)
+
   return (
     <AddFormStyled onSubmit={handleSubmit}>
       <ImagePreview imageSource={newProduct.imageSource} title={newProduct.title} />
-      {getAddFormConfig.map(({ placeholder, Icon, name, version, type }, index) => {
-        return (
-          <TextInput
-            key={index}
-            placeholder={placeholder}
-            Icon={Icon}
-            value={newProduct?.[name] ? newProduct?.[name] : ''}
-            onChange={handleChange}
-            name={name}
-            version={version}
-            type={type}
-          />
-        )
+      {inputTexts.map(input => {
+        return <TextInput key={input.id} {...input} onChange={handleChange} />
       })}
-      <SubmitMessage isSubmitted={isSubmitted} />
+      <div className="submit">
+        <Button
+          label={'Ajouter un nouveau produit au menu'}
+          className={`${isSubmitted && 'success'}`}
+          version={'success'}
+        />
+        {isSubmitted && <SubmitMessage />}
+      </div>
     </AddFormStyled>
   )
 }
@@ -82,4 +81,27 @@ const AddFormStyled = styled.form`
 
   width: 70%;
   height: 10rem;
+
+  .submit {
+    grid-column-start: 2;
+    grid-row-start: 4;
+
+    display: grid;
+    grid-template-columns: 50% 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+
+    .success {
+      background: ${theme.colors.white};
+      color: ${theme.colors.success};
+      font-weight: ${theme.fonts.weights.bold};
+      font-size: ${theme.fonts.size.XS};
+
+      border: 1px solid ${theme.colors.success};
+      border-radius: ${theme.borderRadius.round};
+
+      padding: ${theme.spacing.sm} ${theme.spacing.lg};
+    }
+  }
 `
