@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { theme } from '../../../theme'
 import { IoChevronForward, IoPersonCircleOutline } from 'react-icons/io5'
 import TextInput from '../../reusable-ui/TextInput'
-import PrimaryButton from '../../reusable-ui/PrimaryButton'
+import Button from '../../reusable-ui/Button'
 
 export default function LoginForm() {
   const [inputValue, setInputValue] = useState('')
@@ -32,11 +32,11 @@ export default function LoginForm() {
         type="text"
         placeholder="Entrez votre prénom"
         required
-        icon={<IoPersonCircleOutline />}
+        Icon={<IoPersonCircleOutline />}
       />
-      <PrimaryButton
+      <Button
         label={'Accéder à mon espace'}
-        icon={<IoChevronForward />}
+        Icon={<IoChevronForward />}
         className={'primary-button-login'}
       />
     </LoginFormStyled>
@@ -47,12 +47,17 @@ const LoginFormStyled = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  width: 100%;
+  max-width: 400px;
+
+  gap: ${theme.spacing.md};
+
   padding: ${theme.spacing.xl} ${theme.spacing.lg};
+
   font-family: ${theme.fonts.family.secondary};
   font-weight: ${theme.fonts.weights.bold};
   color: ${theme.colors.white};
-  gap: ${theme.spacing.md};
-  max-width: 400px;
 
   h1 {
     font-size: ${theme.fonts.size.P5};

@@ -1,17 +1,23 @@
 import styled from 'styled-components'
 import { formatPrice } from '../../../utils/maths'
-import PrimaryButton from './PrimaryButton'
+import Button from './Button'
 import { theme } from '../../theme'
+import { TiDelete } from 'react-icons/ti'
 
-export default function Card({ imageSource, title, price }) {
+export default function Card({ imageSource, title, price, hasDeleteButton, onDelete }) {
   return (
     <CardStyled>
-      <img src={imageSource} alt={title} />
+      <div className="image-container">
+        {hasDeleteButton && (
+          <Button onClick={onDelete} Icon={<TiDelete />} version={'danger'}></Button>
+        )}
+        <img src={imageSource} alt={title} />
+      </div>
       <hgroup className="text-info">
         <h2>{title}</h2>
         <div className="description">
           <div className="left-description">{formatPrice(price)}</div>
-          <PrimaryButton label={'Ajouter'} className={'primary-button-card'} />
+          <Button label={'Ajouter'} className={'primary-button-card'} />
         </div>
       </hgroup>
     </CardStyled>
@@ -24,15 +30,23 @@ const CardStyled = styled.li`
   border-radius: ${theme.borderRadius.extraRound};
   box-sizing: border-box;
   width: 15rem;
+  height: 20.625rem;
   list-style-type: none;
+  position: relative;
+  background: ${theme.colors.white};
 
-  img {
-    width: 100%;
-    height: 9rem;
-    margin-top: ${theme.spacing.lg};
-    margin-bottom: ${theme.spacing.sm};
-    box-sizing: border-box;
-    object-fit: contain;
+  .image-container {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: 9rem;
+      margin-top: ${theme.spacing.lg};
+      margin-bottom: ${theme.spacing.sm};
+      box-sizing: border-box;
+      object-fit: contain;
+    }
   }
 
   .text-info {
